@@ -208,17 +208,17 @@ programa{
 						vivo = falso
 						limpa()
 						escreva(nomePetCAlta," ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE\n")
-						escreva(nomePetCAlta, " MORREU DE TRISTEZA\n")
+						escreva(nomePetCAlta, " MORREU DE TRISTEZA PRECOCEMENTE\n")
 					}senao se(limpezaPet <= 0){
 						vivo = falso
 						limpa()
 						escreva(nomePetCAlta," ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE\n")
-						escreva(nomePetCAlta, " MORREU DE SUJEIRA\n")
+						escreva(nomePetCAlta, " MORREU DE SUJEIRA PRECOCEMENTE\n")
 					}senao se(fomePet >= 10){
 						vivo = falso
 						limpa()
 						escreva(nomePetCAlta," ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE\n")
-						escreva(nomePetCAlta, " MORREU DE FOME\n")
+						escreva(nomePetCAlta, " MORREU DE FOME PRECOCEMENTE\n")
 					}senao se(diasVivo >= 7){
 						vivo = falso
 						escreva("VOCE GANHOU!! O PET MORREU DE VELHICE")
