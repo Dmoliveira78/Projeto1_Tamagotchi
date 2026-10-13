@@ -127,12 +127,37 @@ programa{
 						limpa()
 					pare
 					
-					caso 2:
-					pare
+					caso 2:									
+						se(fomePet == 0){
+							// ALIMENTAR QUANDO TIVER SEM FOME
+							felicidadePet = felicidadePet - 2
+							escreva(nomePetCAlta, " NAO ESTAVA COM FOME! (-2 DE FELICIDADE)\n")						
+						}senao{
+							fomePet= fomePet - 4
+							se(fomePet < 0){
+								fomePet = 0
+							}
+						felicidadePet = felicidadePet + 1 // valor escolhido por mim
+        					escreva(nomePetCAlta, " COMEU! FOME ATUAL: ", fomePet, "\n")
+						}
 
+						//AO AUMENTAR A FELICIDADE SE PASSAR DOS LIMITE, FAZ RECEBER VALOR PRA NAO ULTRAPASSAR LIMITE
+						se(felicidadePet > 10){
+							felicidadePet = 10
+							}
+						 se(felicidadePet < 0){
+						     felicidadePet = 0
+							}
+						
+						escreva("\nPressione enter para continuar!")
+    						leia(pausa)
+    						limpa()
+					pare					
 					// ====== BRINCAR ====== //
 					caso 3:
 						escreva("\nVAMOS JOGAR JOKENPO COM ", nomePetCAlta, "!\n")
+						jogadaJogador = 0
+						jogadaPet = 0
 
 						// LAÇO DE REPETIÇÃO CASO EMPATE, ATÉ DESEMPATAR
 						enquanto(jogadaJogador == jogadaPet){
@@ -142,6 +167,8 @@ programa{
 					
 							se(jogadaJogador < 1 ou jogadaJogador > 3){
 								escreva("JOGADA INVALIDA! ESCOLHA 1, 2 OU 3.\n")
+								jogadaJogador = 0
+								jogadaPet = 0
 							}senao{
 								jogadaPet = u.sorteia(1, 3)
 								escreva("VOCE: ", jogadaJogador, " | ", nomePetCAlta, ": ", jogadaPet, "\n")
@@ -160,7 +187,8 @@ programa{
 									}
 								}
 							}
-						}
+						} // FIM ENQUANTO 
+						
 						// SE FELICIDADE FOR MAIOR QUE 10, ELA É DEFINIDA EM 10
 						se(felicidadePet > 10){
 							felicidadePet = 10
@@ -176,9 +204,15 @@ programa{
 					caso 5:
 						escreva("======= STATUS =======")
 						escreva("\nDIAS VIVOS = ", diasVivo)
+						
 						escreva("\nFELICIDADE = ", felicidadePet)
 						escreva("\nSUJEIRA = ", limpezaPet)
 						escreva("\nFOME = ", fomePet)
+						se(doente){
+							escreva("\nDOENTE = SIM")
+						}senao{
+						     escreva("\nDOENTE = NAO")
+						    }
 						escreva("\n======================\n")
 						
 						escreva("\nPressione enter para continuar!")
@@ -190,9 +224,9 @@ programa{
 					pare
 					caso contrario:
 						escreva("OPCAO INVALIDA!! DIGITE UMA OPCAO DE 1 A 6") 
-					}	
+					} // FIM ESCOLHA
 
-					// == DISPARAR MENSAGEM CASO PET ESTEJA QUASE MORRENDO == //
+					// == DISPARAR MENSAGEM CASO PET ESTEJA QUASE MORRENDO == 
 					se(felicidadePet < 4){
 						escreva(nomePetCAlta, " ESTÁ MUITO TRISTE!\n")	
 					}
@@ -203,26 +237,26 @@ programa{
 						escreva(nomePetCAlta, " ESTÁ COM FOME!\n")	
 					}
 					
-					// == VERIFICA A CAUSA DA MORTE DO PET == //
-					se(felicidadePet <= 0){
+					// == VERIFICA A CAUSA DA MORTE DO PET == 
+					se(felicidadePet <= 0 ou limpezaPet <= 0 ou fomePet >= 10){
 						vivo = falso
 						limpa()
-						escreva(nomePetCAlta," ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE\n")
-						escreva(nomePetCAlta, " MORREU DE TRISTEZA PRECOCEMENTE\n")
-					}senao se(limpezaPet <= 0){
-						vivo = falso
-						limpa()
-						escreva(nomePetCAlta," ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE\n")
-						escreva(nomePetCAlta, " MORREU DE SUJEIRA PRECOCEMENTE\n")
-					}senao se(fomePet >= 10){
-						vivo = falso
-						limpa()
-						escreva(nomePetCAlta," ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE\n")
-						escreva(nomePetCAlta, " MORREU DE FOME PRECOCEMENTE\n")
+						escreva(nomePetCAlta, " ESTAVA COM ", diasVivo, " DIAS VIVOS! MAS, INFELIZMENTE MORREU\n")
+
+						se(felicidadePet <= 0){
+							escreva(nomePetCAlta, " MORREU DE TRISTEZA\n")
+						}
+						se(limpezaPet <= 0){
+							escreva(nomePetCAlta, " MORREU DE SUJEIRA\n")
+						}
+						se(fomePet >= 10){
+							escreva(nomePetCAlta, " MORREU DE FOME\n")
+						}
 					}senao se(diasVivo >= 7){
 						vivo = falso
 						escreva("VOCE GANHOU!! O PET MORREU DE VELHICE")
 					}
+				
 			}enquanto(menu != 6  e vivo)
 							
 	}
@@ -232,7 +266,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 6308; 
+ * @POSICAO-CURSOR = 7009; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
