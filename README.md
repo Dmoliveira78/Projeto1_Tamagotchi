@@ -1,5 +1,7 @@
-# Projeto1_Tamagotchi
-Projeto de criação de um pet virtual!
+#  Bichinho Virtual — Tamagotchi em Portugol
+
+Projeto 1 da disciplina **Conceitos de Algoritmos** (1º Período — Tecnologia em Análise e Desenvolvimento de Sistemas), desenvolvido em **Portugol Studio**.
+
 
 
 Alan : https://github.com/AlanFelpVaz
