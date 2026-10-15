@@ -1,4 +1,4 @@
-#  Bichinho Virtual — Tamagotchi em Portugol
+#🐎  Bichinho Virtual — Tamagotchi Spirit
 
 Projeto 1 da disciplina **Conceitos de Algoritmos** (1º Período — Tecnologia em Análise e Desenvolvimento de Sistemas), desenvolvido em **Portugol Studio**.
 
