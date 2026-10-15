@@ -1,8 +1,10 @@
-🐎  Bichinho Virtual — Tamagotchi Spirit
+➡️ 🐎  Bichinho Virtual — Tamagotchi Spirit
 
 Projeto 1 da disciplina **Conceitos de Algoritmos** (1º Período — Tecnologia em Análise e Desenvolvimento de Sistemas), desenvolvido em **Portugol Studio**.
 
 O programa é inspirado no Tamagotchi de 1996 e simula um bichinho virtual. O jogador escolhe o nome do pet e deve cuidar da sua fome, limpeza e felicidade para mantê-lo vivo por até sete dias.
+
+➡️
 
 
 
