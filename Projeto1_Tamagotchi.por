@@ -29,8 +29,9 @@ programa{
 		logico doente = falso //Pet incia saudavel
 		logico vivo = verdadeiro //Pet inicia vivo
 		
-			
+			escreva("=============================\n")
 			escreva("BEM-VINDO AO SEU PET VIRTUAL\n")
+			escreva("=============================\n")
 
 			// RECEBER O NOME DO PET //
 			enquanto(confirmarNome !=1){	
@@ -43,13 +44,17 @@ programa{
 				
 				// LAÇO DE REPETIÇÃO PARA CONFIRMAR O NOME
 				enquanto(confirmarNome != 1 e confirmarNome != 2){
+					escreva("================================\n")
 					escreva("O NOME DO SEU PET SERÁ: ", nomePetCAlta, "\n",
+					   "================================\n",
 					   "CONFIRME O NOME DIGITANDO 1.\n",
 					   "PARA ALTERAR DIGITE 2.\n")
 					leia(confirmarNome)
 					limpa()
 					se(confirmarNome != 1 e confirmarNome != 2){
-           				 escreva("OPCAO INVALIDA!1\n")          			           	 			
+						escreva("================\n")
+           				escreva("OPCAO INVALIDA!\n") 
+           				escreva("================\n")         			           	 			
         				}
 				}													
 			}
@@ -62,7 +67,8 @@ programa{
 					   "3-JOGAR\n",
 					   "4-DAR BANHO\n",
 					   "5-VER STATUS\n",
-					   "6-DESLIGAR")
+					   "6-DESLIGAR\n",
+					   "===================")
 					   
 				escreva("\nESCOLHA UMA OPCAO DO MENU: \n")
 				leia(menu)
@@ -72,14 +78,18 @@ programa{
 					// ===== AVANÇAR TEMPO (+8 HORAS) ===== //
 					caso 1:
 						// AVANÇAR 8 HORAS E ADICIONAR +1 DIA CASO HORAS SEJA == 24
+						escreva("===================================================\n")
+						escreva("TEMPO AVANÇADO EM 8 HORAS! (-2 LIMPEZA, +2 FOME).\n")
+						escreva("===================================================\n")
 						horasDoDia = horasDoDia + 8  
 						se(horasDoDia == 24){
 							diasVivo = diasVivo + 1
 							horasDoDia = 0
 							}
 											
-						limpezaPet = limpezaPet - 2 // 2 Escolhido por mim pois não ta especifico no projeto, colocar condição ao tomar banho
-						fomePet = fomePet + 2	//Colocar condicao ao alimentar    
+						limpezaPet = limpezaPet - 2 // A CADA 8 HORAS O PET PERDE 2 DE LIMPEZA
+						fomePet = fomePet + 2	// A CADA 8 HORAS O PET GANHA 2 DE FOME
+						felicidadePet = felicidadePet - 2 // A CADA 8 HORAS O PET PERDE 2 DE FELICIDADE
 					
 						// FELICIDADE CAI, CASO PET ESTEJA MUITO SUJO
 						se(limpezaPet <= 4){
@@ -122,7 +132,7 @@ programa{
 							limpezaPet = 0
 						}
 					
-						escreva("\nPressione enter para continuar!")
+						escreva("\nPRESSIONE ENTER PARA CONTINUAR!")
 						leia(pausa)
 						limpa()
 					pare
@@ -131,14 +141,18 @@ programa{
 						se(fomePet == 0){
 							// ALIMENTAR QUANDO TIVER SEM FOME
 							felicidadePet = felicidadePet - 2
-							escreva(nomePetCAlta, " NAO ESTAVA COM FOME! (-2 DE FELICIDADE)\n")						
+							escreva("=======================================================\n")
+							escreva(nomePetCAlta, " NAO ESTAVA COM FOME! (-2 DE FELICIDADE).\n")	
+							escreva("=======================================================\n")					
 						}senao{
-							fomePet= fomePet - 4
+							fomePet = fomePet - 4
 							se(fomePet < 0){
 								fomePet = 0
 							}
 						felicidadePet = felicidadePet + 1 // valor escolhido por mim
-        					escreva(nomePetCAlta, " COMEU! FOME ATUAL: ", fomePet, "\n")
+						escreva("========================================================\n")
+        					escreva(nomePetCAlta, " COMEU! FOME ATUAL: ", fomePet, " (-4 FOME, +1 FELICIDADE).\n")
+        					escreva("========================================================\n")
 						}
 
 						//AO AUMENTAR A FELICIDADE SE PASSAR DOS LIMITE, FAZ RECEBER VALOR PRA NAO ULTRAPASSAR LIMITE
@@ -149,41 +163,53 @@ programa{
 						     felicidadePet = 0
 							}
 						
-						escreva("\nPressione enter para continuar!")
+						escreva("\nPRESSIONE ENTER PARA CONTINUAR!")
     						leia(pausa)
     						limpa()
 					pare					
 					// ====== BRINCAR ====== //
 					caso 3:
-						escreva("\nVAMOS JOGAR JOKENPO COM ", nomePetCAlta, "!\n")
+						escreva("=====================================\n")
+						escreva("VAMOS JOGAR JOKENPO COM ", nomePetCAlta, "!\n")
 						jogadaJogador = 0
 						jogadaPet = 0
 
 						// LAÇO DE REPETIÇÃO CASO EMPATE, ATÉ DESEMPATAR
 						enquanto(jogadaJogador == jogadaPet){
 							escreva("1-PEDRA | 2-PAPEL | 3-TESOURA\n")
+							escreva("=====================================\n")
 							escreva("QUAL SERA SUA JOGADA? ")
 							leia(jogadaJogador)
 					
 							se(jogadaJogador < 1 ou jogadaJogador > 3){
+								limpa()
+								escreva("=====================================\n")
 								escreva("JOGADA INVALIDA! ESCOLHA 1, 2 OU 3.\n")
+								escreva("=====================================\n")
 								jogadaJogador = 0
 								jogadaPet = 0
 							}senao{
 								jogadaPet = u.sorteia(1, 3)
+								limpa()
 								escreva("VOCE: ", jogadaJogador, " | ", nomePetCAlta, ": ", jogadaPet, "\n")
 					
 								se(jogadaJogador == jogadaPet){
-									escreva("EMPATE! JOGUE NOVAMENTE...\n\n")
+									
+									escreva("EMPATE! JOGUE NOVAMENTE...\n")
+									escreva("=====================================\n")
 								}senao{
 						
 									// VITORIA E DERROTA DO PET
 									se((jogadaPet == 1 e jogadaJogador == 3) ou (jogadaPet == 2 e jogadaJogador == 1) ou (jogadaPet == 3 e jogadaJogador == 2)){
 										felicidadePet = felicidadePet + 5
+										escreva("=====================================\n")
 										escreva(nomePetCAlta, " VOCE VENCEU! (+5 DE FELICIDADE).\n")
+										escreva("=====================================\n")
 									}senao{
 										felicidadePet = felicidadePet + 3
+										escreva("===============================================\n")
 										escreva(nomePetCAlta, " PERDEU, MAS SE DIVERTIU! (+3 DE FELICIDADE).\n")
+										escreva("===============================================\n")
 									}
 								}
 							}
@@ -194,11 +220,30 @@ programa{
 							felicidadePet = 10
 						}
 
-						escreva("\nPressione enter para continuar!")
+						escreva("\nPRESSIONE ENTER PARA CONTINUAR!")
 						leia(pausa)
 						limpa()
 					pare
+					// ====== DAR BANHO ===== //
 					caso 4:
+						se(limpezaPet == 10){
+							escreva("===================================\n")
+							escreva(nomePetCAlta, " JÁ ESTÁ LIMPO! (-6 FELICIDADE)\n")
+							escreva("===================================\n")
+							felicidadePet = felicidadePet - 6
+							se(felicidadePet < 0){
+								felicidadePet = 0	
+							}	
+						}senao{
+						limpezaPet = 10
+						escreva("=======================================\n")
+						escreva(nomePetCAlta," AGORA ESTÁ LIMPO! (LIMPEZA = 10)\n")
+						escreva("=======================================\n")
+						}
+
+						escreva("\nPRESSIONE ENTER PARA CONTINUAR!")
+						leia(pausa)
+						limpa()
 					pare
 					// ===== STATUS DO PET ===== //
 					caso 5:
@@ -206,7 +251,7 @@ programa{
 						escreva("\nDIAS VIVOS = ", diasVivo)
 						
 						escreva("\nFELICIDADE = ", felicidadePet)
-						escreva("\nSUJEIRA = ", limpezaPet)
+						escreva("\nLIMPEZA = ", limpezaPet)
 						escreva("\nFOME = ", fomePet)
 						se(doente){
 							escreva("\nDOENTE = SIM")
@@ -215,15 +260,19 @@ programa{
 						    }
 						escreva("\n======================\n")
 						
-						escreva("\nPressione enter para continuar!")
+						escreva("\nPRESSIONE ENTER PARA CONTINUAR!")
 						leia(pausa)
 						limpa()
 					pare
 					caso 6:
-						escreva("PROGRAMA DESLIGADO")  
+						escreva("===================\n")
+						escreva("PROGRAMA DESLIGADO\n") 
+						escreva("===================\n") 
 					pare
 					caso contrario:
-						escreva("OPCAO INVALIDA!! DIGITE UMA OPCAO DE 1 A 6") 
+						escreva("========================================\n")
+						escreva("OPCAO INVALIDA!! DIGITE UMA OPCAO DE 1 A 6\n") 
+						escreva("========================================\n")
 					} // FIM ESCOLHA
 
 					// == DISPARAR MENSAGEM CASO PET ESTEJA QUASE MORRENDO == 
@@ -254,7 +303,10 @@ programa{
 						}
 					}senao se(diasVivo >= 7){
 						vivo = falso
-						escreva("VOCE GANHOU!! O PET MORREU DE VELHICE")
+						limpa()
+						escreva("====================================\n")
+						escreva("VOCE GANHOU!! O PET MORREU DE VELHICE\n")
+						escreva("====================================\n")
 					}
 				
 			}enquanto(menu != 6  e vivo)
@@ -266,7 +318,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 7009; 
+ * @POSICAO-CURSOR = 10446; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
