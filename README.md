@@ -31,6 +31,29 @@ O nome é transformado em caixa alta com _t.caixa_alta()_ e guardado em nomePetC
 
 **O laço do menu:** O menu fica dentro de um <img width="47" height="22" alt="image" src="https://github.com/user-attachments/assets/20594ca6-5c4f-444b-bdc1-26337d33cd49" /> ... <img width="87" height="23" alt="image" src="https://github.com/user-attachments/assets/e5697adf-d5a3-4806-ba1e-240cd3103333" />, que faz o menu aparecer pelo menos uma vez e continuar se repetindo até o jogador escolher "Desligar" ou pet morrer. A condição que para o laço é   <img width="185" height="36" alt="image" src="https://github.com/user-attachments/assets/e74f8f0e-1cab-421f-8efd-bb8fd9a39309" />
 
+_**Opção 1 - Avançar no tempo**_: Cada vez que essa opção é escolhida, o tempo passa 8 horas. Isso muda várias coisas:
+A cada 24h aculadas, conta maus um dia de vida.
+A limpeza cai 2 pontos e a fome sobe 2 pontos.
+A felicidade cai 2 pontos e cai mais 1 se a limpeza já estiver muito baixa (4 ou menos).
+Se o pet já está doente, soma 8h no tempo de doença e sorteia a chance de cura (33,3% com 8h, 66,6% com 16h, cura garantida com 24h ou mais).
+Se o pet não está doente, tem 15% de chance dele ficar doente nessa rodada.
+
+No final, o código trava felicidade e limpeza pra não passarem dos limetes (não deixa ir abaixo de 0, por exemplo).
+
+_**Opção 2 - Alimentar**_: Se o pet já está sem fome (fome=0) e o jogador tenta alimentar mesmo assim, o pet fica chateado e perde 2 de felicidade. Se ele está com fome, a fome cai 4 pontos e a felicidade sobe 1, por que ele gostou de comer.
+
+_**Opção 3 - Jogar (Jokenpô)**_ : O pet joga pedra, papel e tesoura com jogador. O jogador digita a jogada (1,2 ou 3) e o comuputador sorteia a jogada do pet. Se der empate, o jogo repete sozinho até sair um vencedor, isso é feito com um  <img width="87" height="22" alt="image" src="https://github.com/user-attachments/assets/9d7791e4-d950-4911-a90b-f9ca74e50213" />  que só para quando as jogadas são diferentes. Se o pet ganhar, a felicidade sobe 5. Se perder, sobe 3 mesmo assim, porque ele se divertiu de qualquer forma.
+
+_**Opção 4 - Dar banho**_: Se a limpeza já está no máximo (10) e o jogador dá banho mesmo assim, o pet não gosta e perde 6 de felicidade. Se não está limpo, a limpeza volta pro máximo.
+
+_**Opção 5 - Ver status**_: Mostra na tela os dias de vida, a felicidade, a limpeza, a fome e se pet está doente ou não.
+
+_**Opção 6 - Desligar**_: Encerra o jogo, porque faz a condição <img width="98" height="20" alt="image" src="https://github.com/user-attachments/assets/88eaabbc-77f1-4118-b525-97913e83e1fb" /> do laço principal ficar falsa.
+
+
+
+
+
 
 
 
