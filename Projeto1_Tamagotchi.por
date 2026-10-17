@@ -14,7 +14,7 @@ programa{
 
 		// ===== STATUS ===== //
 		inteiro felicidadePet = 5// Comer, brincar e dormir aumenta, maximo 10 se chegar a 0 morre, Pet vencer aumenta em 5 e caso perder aumenta em 3
-		inteiro limpezaPet = 10// Ao passar o tempo diminui, chegar em 0 morre
+		inteiro limpezaPet = 10// Comeca em 10, chegar em 0 morre
 		inteiro fomePet = 0 //Passar tempo a fome aumenta, alimentar diminui 4 pontos de fome, se tiver em 0 a fome e alimentar a felicidade diminui em 2
 				
 		// ==== BRINCAR ==== //
@@ -56,7 +56,7 @@ programa{
            				escreva("OPCAO INVALIDA!\n") 
            				escreva("================\n")         			           	 			
         				}
-				}													
+				}//FIM ENQUANTO CONFIRMA NOME												
 			}
 			
 			// INICIO DO LOOP DO MENU //
@@ -86,10 +86,10 @@ programa{
 							diasVivo = diasVivo + 1
 							horasDoDia = 0
 							}
-											
-						limpezaPet = limpezaPet - 2 // A CADA 8 HORAS O PET PERDE 2 DE LIMPEZA
-						fomePet = fomePet + 2	// A CADA 8 HORAS O PET GANHA 2 DE FOME
-						felicidadePet = felicidadePet - 2 // A CADA 8 HORAS O PET PERDE 2 DE FELICIDADE
+						//A CADA 8 HORAS O PET GANHA E PERDE ESSES ATRIBUTOS, NAO ESTA ESPECIFICO QUANTO PERDE, DECIDIMOS COLOCAR ESSES VALORES				
+						limpezaPet = limpezaPet - 2 
+						fomePet = fomePet + 2	
+						felicidadePet = felicidadePet - 1 
 					
 						// FELICIDADE CAI, CASO PET ESTEJA MUITO SUJO
 						se(limpezaPet <= 4){
@@ -149,7 +149,7 @@ programa{
 							se(fomePet < 0){
 								fomePet = 0
 							}
-						felicidadePet = felicidadePet + 1 // valor escolhido por mim
+						felicidadePet = felicidadePet + 1 // VALOR ESCOLHIDO POR MIM
 						escreva("========================================================\n")
         					escreva(nomePetCAlta, " COMEU! FOME ATUAL: ", fomePet, " (-4 FOME, +1 FELICIDADE).\n")
         					escreva("========================================================\n")
@@ -237,7 +237,7 @@ programa{
 						}senao{
 						limpezaPet = 10
 						escreva("=======================================\n")
-						escreva(nomePetCAlta," AGORA ESTÁ LIMPO! (LIMPEZA = 10)\n")
+						escreva(nomePetCAlta," AGORA ESTÁ LIMPO!\n")
 						escreva("=======================================\n")
 						}
 
@@ -248,8 +248,7 @@ programa{
 					// ===== STATUS DO PET ===== //
 					caso 5:
 						escreva("======= STATUS =======")
-						escreva("\nDIAS VIVOS = ", diasVivo)
-						
+						escreva("\nDIAS VIVOS = ", diasVivo)						
 						escreva("\nFELICIDADE = ", felicidadePet)
 						escreva("\nLIMPEZA = ", limpezaPet)
 						escreva("\nFOME = ", fomePet)
@@ -305,7 +304,7 @@ programa{
 						vivo = falso
 						limpa()
 						escreva("====================================\n")
-						escreva("VOCE GANHOU!! O PET MORREU DE VELHICE\n")
+						escreva("VOCE GANHOU!! O PET ",nomePetCAlta," MORREU DE VELHICE\n")
 						escreva("====================================\n")
 					}
 				
@@ -318,7 +317,7 @@ programa{
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 10446; 
+ * @POSICAO-CURSOR = 8604; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
